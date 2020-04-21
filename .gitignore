@@ -1,0 +1,25 @@
+# Big matrixs
+**.mtx
+**matrix.ec
+
+# Big files
+**.bus
+**.fastq
+**.Rdata
+**.rds
+
+# Big tables
+**barcodes.txt
+**genes.txt
+
+# Other outputs
+**.json
+**transcripts.txt
+
+# Snakemake
+**.snakemake*
+
+# Plotly files
+**.js
+**.map
+**plotly*
