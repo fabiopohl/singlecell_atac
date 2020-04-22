@@ -8,6 +8,7 @@
 **.Rdata
 **.rds
 **.bam
+**.sam
 
 # Big tables
 **barcodes.txt
