@@ -1,0 +1,6 @@
+rule create_snap:
+    input: 
+        bam = "possorted_bam.bam"
+    output: 
+        "possorted_bam.snap"
+    wrapper: "file://.."

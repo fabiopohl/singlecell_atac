@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# Testing creating SNAP file
+
+# Move to working dir
+cd /Users/fabiopohl/proj/human_fetal_atac/data/cellranger/scatac_10x_191210/HES1/outs 
+
+# Create header
+samtools view possorted_bam.bam -H > possorted.header.sam
+
+# Change barcode position
+cat <( cat possorted.header.sam ) \
+<( samtools view possorted_bam.bam | awk '{for (i=12; i<=NF; ++i) { if ($i ~ "^CB:Z:"){ td[substr($i,1,2)] = substr($i,6,length($i)-5); } }; printf "%s:%s\n", td["CB"], $0 }' ) \
+| samtools view -bS - > possorted.snap.bam
+
+# Sort bam file
+samtools sort -n -@ 10 -m 1G possorted.snap.bam -o possorted.snap.nsrt.bam
+
+# Generate snap file
+snaptools snap-pre  \
+	--input-file=possorted.snap.nsrt.bam  \
+	--output-snap=possorted.snap  \
+        --genome-name=hg38 \
+        --genome-size=/Users/fabiopohl/proj/human_fetal_atac/hg38.chrom.sizes \
+	--min-mapq=30  \
+	--min-flen=50  \
+	--max-flen=1000  \
+	--keep-chrm=TRUE  \
+	--keep-single=FALSE  \
+	--keep-secondary=False  \
+	--overwrite=True  \
+	--max-num=20000  \
+	--min-cov=500  \
+	--verbose=True
