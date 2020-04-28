@@ -9,6 +9,7 @@
 **.rds
 **.bam
 **.sam
+**.snap
 
 # Big tables
 **barcodes.txt
