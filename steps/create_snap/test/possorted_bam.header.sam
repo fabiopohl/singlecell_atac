@@ -199,7 +199,6 @@
 @PG	PN:bwa	ID:bwa	VN:0.7.17-r1188	CL:bwa mem -p -t 4 -M -R @RG\tID:Mandy_ATAC:MissingLibrary:1:HH7W2DRXX:1\tSM:Mandy_ATAC\tLB:MissingLibrary.1\tPU:Mandy_ATAC:MissingLibrary:1:HH7W2DRXX:1\tPL:ILLUMINA /data/ref/cellranger-atac/refdata-cellranger-atac-GRCh38-1.1.0/fasta/genome.fa /data/escg/proj/chromium/ATAC/ATAC_19_GCB_01_R45_HH7W2DRXX_142/Mandy_ATAC/SC_ATAC_COUNTER_CS/SC_ATAC_COUNTER/_BASIC_SC_ATAC_COUNTER/_ALIGNER/TRIM_READS/fork0/chnk0-u9c00ca9577/files/read1.fastq
 @PG	PN:cellranger-atac.attach_bcs	ID:attach_bcs	VN:1.1.0	PP:bwa
 @PG	PN:cellranger-atac.mark_duplicates	ID:mark_duplicates	VN:1.1.0	PP:attach_bcs
-@PG	ID:samtools	PN:samtools	PP:mark_duplicates	VN:1.10	CL:samtools view -H possorted_bam.bam
 @CO	10x_bam_to_fastq:R1(SEQ:QUAL,TR:TQ)
 @CO	10x_bam_to_fastq:R2(SEQ:QUAL,TR:TQ)
 @CO	10x_bam_to_fastq:I1(BC:QT)
